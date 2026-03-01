@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAVI — Seu WhatsApp não pode ser seu plantão</title>
-  <meta name="description" content="MAVI organiza as mensagens do consultório com triagem, prioridades e histórico. Atendimento via WhatsApp sem perder o toque humano.">
+  <title>MAVI — Pare de usar o WhatsApp como consultório</title>
+  <meta name="description" content="MAVI organiza mensagens, exames e demandas do paciente em um fluxo seguro — sem invadir seus horários e sem perder nada no meio da conversa.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MAVI — Seu WhatsApp não pode ser seu plantão">
-  <meta property="og:description" content="Organize o atendimento via WhatsApp do consultório com triagem, prioridades e histórico. Sem perder o toque humano.">
+  <meta property="og:title" content="MAVI — Pare de usar o WhatsApp como consultório">
+  <meta property="og:description" content="Organize demandas, mensagens e arquivos do consultório em um fluxo seguro. LGPD-ready, com limites de horário e rastreabilidade.">
   <meta property="og:image" content="assets/img/og-image.png">
-  <meta property="og:url" content="https://mavi.com.br">
+  <meta property="og:url" content="https://mavi-lp.onrender.com">
   <meta property="og:locale" content="pt_BR">
 
   <!-- Favicon -->
@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "MAVI",
-    "description": "Assistente virtual para organizar atendimento via WhatsApp em consultórios e clínicas médicas.",
+    "description": "Meu Assistente Virtual — ferramenta de organização e comunicação para médicos e consultórios.",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -41,6 +41,15 @@
     }
   }
   </script>
+
+  <!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
 </head>
 <body>
 
@@ -54,14 +63,13 @@
       </button>
 
       <div class="navbar__links" id="navLinks">
-        <a href="#problema">Problema</a>
+        <a href="#produto">Produto</a>
         <a href="#como-funciona">Como funciona</a>
-        <a href="#funcionalidades">Funcionalidades</a>
         <a href="#planos">Planos</a>
-        <a href="#onboarding">Onboarding</a>
+        <a href="#founders">Founders</a>
         <a href="#faq">FAQ</a>
         <div class="navbar__cta">
-          <a href="#" class="btn btn-primary" data-open-modal data-track="nav_cta">Eu quero organização</a>
+          <a href="#lead-form" class="btn btn-primary" data-track="nav_cta">Entrar na lista</a>
         </div>
       </div>
     </div>
@@ -70,72 +78,158 @@
   <!-- ════════════ HERO ════════════ -->
   <section class="hero" id="hero">
     <div class="container">
-      <div class="hero__badge">
-        <span class="badge">Novo &mdash; Central de atendimento para consultórios</span>
+
+      <!-- Variant A: Anti-WhatsApp (default) -->
+      <div data-variant="a">
+        <div class="hero__badge">
+          <span class="badge">Meu Assistente Virtual para médicos</span>
+        </div>
+        <h1 class="hero__title">Pare de usar o WhatsApp como consultório.</h1>
+        <p class="hero__subtitle">O MAVI organiza mensagens, exames e demandas do paciente em um fluxo seguro — sem invadir seus horários e sem perder nada no meio da conversa.</p>
+        <ul class="hero__bullets">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Menos invasão de horário. Mais controle.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Privacidade e organização (LGPD-ready).
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Tudo em um lugar: mensagens, tarefas, arquivos e retornos.
+          </li>
+        </ul>
+        <div class="hero__actions">
+          <a href="#lead-form" class="btn btn-primary btn-lg" data-track="hero_cta_primary">Entrar na lista de espera</a>
+          <a href="#como-funciona" class="btn btn-secondary btn-lg" data-track="hero_cta_secondary">Ver como funciona</a>
+        </div>
       </div>
-      <h1 class="hero__title">Seu WhatsApp não pode ser seu plantão.</h1>
-      <p class="hero__subtitle">A MAVI cria uma central de mensagens do consultório com triagem, prioridades e histórico — para você não viver em alerta e não esquecer ninguém.</p>
-      <div class="hero__actions">
-        <a href="#como-funciona" class="btn btn-primary btn-lg" data-track="hero_cta_secondary">Ver como funciona</a>
+
+      <!-- Variant B: Premium serenity -->
+      <div data-variant="b" hidden>
+        <div class="hero__badge">
+          <span class="badge">Meu Assistente Virtual para médicos</span>
+        </div>
+        <h1 class="hero__title">Seu consultório digital com tranquilidade.</h1>
+        <p class="hero__subtitle">MAVI (Meu Assistente Virtual) transforma o caos do WhatsApp em organização, segurança e previsibilidade — para você e seus pacientes.</p>
+        <ul class="hero__bullets">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Organize demandas sem estresse.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Fluxo seguro e profissional.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Atendimento com limites e clareza.
+          </li>
+        </ul>
+        <div class="hero__actions">
+          <a href="#lead-form" class="btn btn-primary btn-lg" data-track="hero_cta_primary">Quero conhecer o MAVI</a>
+          <a href="#como-funciona" class="btn btn-secondary btn-lg" data-track="hero_cta_secondary">Como funciona</a>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ════════════ SOCIAL PROOF ════════════ -->
-  <section class="social-proof" aria-label="Prova social">
-    <div class="container social-proof__inner">
-      <div class="social-proof__item" data-animate>
-        <strong>500+</strong> mensagens organizadas/dia
-      </div>
-      <div class="social-proof__item" data-animate>
-        <strong>98%</strong> de satisfação nos testes
-      </div>
-      <div class="social-proof__item" data-animate>
-        <strong>3 min</strong> tempo médio de triagem
-      </div>
-      <div class="social-proof__item" data-animate>
-        <strong>0</strong> mensagens esquecidas
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════ PROBLEMA ════════════ -->
+  <!-- ════════════ O PROBLEMA ════════════ -->
   <section class="section problem" id="problema">
     <div class="container">
-      <h2 class="section-title">A realidade que ninguém fala</h2>
-      <p class="section-subtitle">Seu WhatsApp virou um pronto-socorro digital — e o preço disso é alto.</p>
+      <h2 class="section-title">O problema</h2>
+      <p class="problem__intro">WhatsApp virou o "consultório" de muitos médicos. Isso parece prático — até virar excesso de mensagens, solicitações fora de hora, perda de exames no histórico e risco de privacidade.</p>
 
       <div class="problem__grid">
         <div class="problem__card" data-animate>
-          <div class="problem__icon" aria-hidden="true">&#128337;</div>
-          <h3>Mensagens fora do horário viram rotina</h3>
-          <p>Pacientes mandam exames às 23h, pedem orientação no domingo. Seu celular virou plantão 24/7 — e a culpa de não responder é constante.</p>
+          <div class="problem__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Invasão de horário</h3>
         </div>
         <div class="problem__card" data-animate>
-          <div class="problem__icon" aria-hidden="true">&#128196;</div>
-          <h3>Exames e pedidos se perdem no chat</h3>
-          <p>Aquele exame urgente ficou enterrado entre áudios e figurinhas. Sem rastreio, sem histórico, sem controle.</p>
+          <div class="problem__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <h3>Esquecimento e retrabalho</h3>
         </div>
         <div class="problem__card" data-animate>
-          <div class="problem__icon" aria-hidden="true">&#128101;</div>
-          <h3>Delegação vira bagunça</h3>
-          <p>Você encaminha para a secretária, ela não viu. Ninguém sabe quem está cuidando do quê. Sem dono, sem status, sem paz.</p>
+          <div class="problem__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Privacidade e risco (LGPD)</h3>
+        </div>
+        <div class="problem__card" data-animate>
+          <div class="problem__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <h3>Desorganização: tudo misturado</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════ PROPOSTA (transição) ════════════ -->
-  <section class="section" style="text-align:center; background: var(--mavi-white);">
+  <!-- ════════════ A SOLUÇÃO: MAVI ════════════ -->
+  <section class="section solution" id="produto">
     <div class="container">
-      <span class="badge badge--gold" data-animate>Como a MAVI resolve</span>
-      <h2 class="section-title" style="margin-top: var(--space-lg);" data-animate>MAVI transforma conversa em fluxo:</h2>
-      <p class="section-subtitle" data-animate>Triagem &rarr; Tarefa &rarr; Registro &rarr; Retorno</p>
+      <h2 class="section-title">A solução: MAVI</h2>
+      <p class="solution__intro">MAVI é um assistente virtual para médicos que centraliza e organiza o que hoje fica espalhado em conversas.</p>
+
+      <div class="solution__grid">
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Caixa de entrada clínica</h3>
+          <p>Separa por paciente e prioridade</p>
+        </div>
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Tarefas e lembretes</h3>
+          <p>Nada fica para trás</p>
+        </div>
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <h3>Triagem e tags</h3>
+          <p>Exames, receitas, dúvidas, retorno</p>
+        </div>
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <h3>Arquivos organizados</h3>
+          <p>Laudos e PDFs por paciente</p>
+        </div>
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Mensagens com templates</h3>
+          <p>Respostas rápidas e padronizadas</p>
+        </div>
+        <div class="solution__card" data-animate>
+          <div class="solution__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Limites de horário e SLA</h3>
+          <p>Expectativa clara para o paciente</p>
+        </div>
+      </div>
+
+      <div class="solution__cta">
+        <a href="#lead-form" class="btn btn-primary btn-lg" data-track="solution_cta">Entrar na lista</a>
+      </div>
     </div>
   </section>
 
   <!-- ════════════ COMO FUNCIONA ════════════ -->
-  <section class="section" id="como-funciona">
+  <section class="section" id="como-funciona" style="background: var(--mavi-white);">
     <div class="container">
       <h2 class="section-title">Como funciona</h2>
       <p class="section-subtitle">4 passos para transformar caos em fluxo organizado.</p>
@@ -143,237 +237,172 @@
       <div class="how-it-works__steps">
         <div class="step" data-animate>
           <div class="step__number">1</div>
-          <h3>Mensagem chega</h3>
-          <p>Paciente envia mensagem pelo WhatsApp. A MAVI captura e classifica automaticamente.</p>
+          <h3>Conecte seu fluxo</h3>
+          <p>WhatsApp Business/API ou canal dedicado</p>
         </div>
         <div class="step" data-animate>
           <div class="step__number">2</div>
-          <h3>Triagem inteligente</h3>
-          <p>Urgência sobe, rotina entra na fila. Cada mensagem recebe prioridade e categoria.</p>
+          <h3>MAVI transforma mensagens</h3>
+          <p>Mensagens viram tarefas e filas organizadas</p>
         </div>
         <div class="step" data-animate>
           <div class="step__number">3</div>
-          <h3>Tarefa com responsável</h3>
-          <p>Secretária, enfermagem ou médico — cada demanda tem dono e prazo definido.</p>
+          <h3>Responda com contexto</h3>
+          <p>Templates, organização e histórico completo</p>
         </div>
         <div class="step" data-animate>
           <div class="step__number">4</div>
-          <h3>Registro e retorno</h3>
-          <p>Tudo fica registrado com histórico. Follow-up e lembretes garantem que nada se perde.</p>
+          <h3>Tudo registrado</h3>
+          <p>Histórico rastreável por paciente</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════ CTA INTERMEDIÁRIO ════════════ -->
-  <section class="section cta-mid" style="text-align:center; background: var(--mavi-white); padding: var(--space-xl) 0;">
+  <!-- ════════════ WHATSAPP vs MAVI ════════════ -->
+  <section class="section comparison">
     <div class="container">
-      <p class="section-subtitle" data-animate>Pronto para organizar seu consultório?</p>
-      <a href="#" class="btn btn-primary btn-lg" data-open-modal data-track="cta_mid_primary" data-animate>Eu quero organização</a>
-    </div>
-  </section>
+      <h2 class="section-title">WhatsApp vs MAVI</h2>
+      <p class="section-subtitle">Veja o que muda quando você organiza o atendimento.</p>
 
-  <!-- ════════════ FUNCIONALIDADES ════════════ -->
-  <section class="section" id="funcionalidades" style="background: var(--mavi-white);">
-    <div class="container">
-      <h2 class="section-title">Funcionalidades</h2>
-      <p class="section-subtitle">Tudo o que você precisa para retomar o controle do atendimento.</p>
-
-      <div class="features__grid">
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#9201;</div>
-          <h3>Horários e regras de atendimento</h3>
-          <p>Defina janelas de resposta e regras claras. Resposta humana, com prazo — sem virar plantão.</p>
-        </div>
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#9888;</div>
-          <h3>Triagem e prioridades</h3>
-          <p>Urgência sobe automaticamente, rotina entra na fila. Nada passa despercebido.</p>
-        </div>
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#9745;</div>
-          <h3>Tarefas com responsável</h3>
-          <p>Atribua demandas para secretária, enfermagem ou médico. Cada tarefa tem dono e status.</p>
-        </div>
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#128172;</div>
-          <h3>Modelos de resposta</h3>
-          <p>Templates com empatia e padrão. Respostas rápidas, humanas e consistentes.</p>
-        </div>
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#128203;</div>
-          <h3>Histórico e rastreabilidade</h3>
-          <p>Saiba o que foi decidido, quando e por quem. Tudo registrado, nada perdido.</p>
-        </div>
-        <div class="feature-card" data-animate>
-          <div class="feature-card__icon" aria-hidden="true">&#128276;</div>
-          <h3>Follow-up e lembretes</h3>
-          <p>Aguardando exame? Retorno pendente? Lembretes automáticos para não esquecer ninguém.</p>
-        </div>
+      <div class="comparison__table" data-animate>
+        <table>
+          <thead>
+            <tr>
+              <th>Recurso</th>
+              <th>WhatsApp</th>
+              <th>MAVI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organização por paciente</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Prioridades / fila</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Lembretes e tarefas</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Arquivos centralizados</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Limites de horário</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Auditabilidade e rastreio</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>Pronto para crescimento</td>
+              <td><span class="comparison__cross" aria-label="Não"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+              <td><span class="comparison__check" aria-label="Sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- ════════════ DEPOIMENTOS ════════════ -->
-  <section class="section testimonials" id="depoimentos">
+  <!-- ════════════ FOUNDERS PROGRAM ════════════ -->
+  <section class="section founders" id="founders">
     <div class="container">
-      <h2 class="section-title">O que dizem sobre a MAVI</h2>
-      <p class="section-subtitle">Profissionais que testaram e aprovaram.</p>
+      <h2 class="section-title">Programa Médico Fundador</h2>
+      <p class="founders__copy">Queremos construir o MAVI junto com médicos que vivem esse problema no dia a dia. Os primeiros participantes entram como Founders: acesso antecipado, onboarding e condições especiais.</p>
 
-      <div class="testimonials__grid">
-        <div class="testimonial-card" data-animate>
-          <div class="testimonial-card__stars" aria-label="5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>"Finalmente consigo jantar sem olhar o celular a cada 5 minutos. A MAVI me devolveu meus horários."</blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">DR</div>
-            <div>
-              <div class="testimonial-card__name">Dr(a). Exemplo</div>
-              <div class="testimonial-card__role">Clínico geral — São Paulo</div>
-            </div>
-          </div>
+      <div class="founders__benefits">
+        <div class="founders__benefit" data-animate>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Early access + influência no roadmap
         </div>
-
-        <div class="testimonial-card" data-animate>
-          <div class="testimonial-card__stars" aria-label="5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>"Minha secretária agora sabe exatamente o que fazer com cada mensagem. Zero confusão, zero retrabalho."</blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">MC</div>
-            <div>
-              <div class="testimonial-card__name">Dr(a). Exemplo</div>
-              <div class="testimonial-card__role">Dermatologista — Rio de Janeiro</div>
-            </div>
-          </div>
+        <div class="founders__benefit" data-animate>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Onboarding 1:1
         </div>
-
-        <div class="testimonial-card" data-animate>
-          <div class="testimonial-card__stars" aria-label="5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>"Nenhum exame se perde mais. O histórico da MAVI é simples, rápido e confiável."</blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">PL</div>
-            <div>
-              <div class="testimonial-card__name">Dr(a). Exemplo</div>
-              <div class="testimonial-card__role">Pediatra — Belo Horizonte</div>
-            </div>
-          </div>
+        <div class="founders__benefit" data-animate>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Período gratuito (beta)
+        </div>
+        <div class="founders__benefit" data-animate>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Preço de fundador por tempo limitado
         </div>
       </div>
+
+      <a href="#lead-form" class="btn btn-white btn-lg" data-track="founders_cta" data-founder="true">Quero ser Founder</a>
     </div>
   </section>
 
   <!-- ════════════ PLANOS ════════════ -->
-  <section class="section" id="planos" style="background: var(--mavi-white);">
+  <section class="section plans" id="planos">
     <div class="container">
       <h2 class="section-title">Planos</h2>
       <p class="section-subtitle">Escolha o plano ideal para o seu momento.</p>
 
       <div class="plans__grid">
-        <!-- Starter -->
+        <!-- Básico -->
         <div class="plan-card" data-animate>
-          <h3 class="plan-card__name">Starter</h3>
-          <p class="plan-card__audience">Para médicos solo</p>
+          <h3 class="plan-card__name">Básico</h3>
+          <p class="plan-card__audience">Para o consultório individual</p>
           <div class="plan-card__price">
-            <span class="plan-card__currency">R$</span>
-            <span class="plan-card__amount">197</span>
-            <span class="plan-card__period">/mês</span>
+            <span class="plan-card__price-label">a partir de</span>
           </div>
           <ul class="plan-card__features">
-            <li>Painel de atendimento + regras de horário</li>
-            <li>Etiquetas e prioridade</li>
+            <li>Caixa de entrada + organização por paciente</li>
             <li>Templates de resposta</li>
-            <li>Lembretes básicos</li>
-            <li>1 canal (WhatsApp)</li>
-            <li>Até 500 mensagens/mês</li>
+            <li>1 usuário</li>
+            <li>Suporte por e-mail</li>
           </ul>
-          <p class="plan-card__support">Suporte em horário comercial + onboarding self-serve</p>
-          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_starter">Começar agora</a>
+          <a href="#lead-form" class="btn btn-secondary" data-track="plan_basico">Começar</a>
         </div>
 
-        <!-- Clinic (featured) -->
+        <!-- Pro (featured) -->
         <div class="plan-card plan-card--featured" data-animate>
           <div class="plan-card__badge"><span class="badge">Mais popular</span></div>
-          <h3 class="plan-card__name">Clinic</h3>
-          <p class="plan-card__audience">Para clínicas com equipe</p>
-          <div class="plan-card__price">
-            <span class="plan-card__currency">R$</span>
-            <span class="plan-card__amount">497</span>
-            <span class="plan-card__period">/mês</span>
-          </div>
-          <ul class="plan-card__features">
-            <li>Tudo do Starter</li>
-            <li>Multiusuários e permissões</li>
-            <li>Atribuição de tarefas</li>
-            <li>Triagem avançada com IA</li>
-            <li>Histórico completo</li>
-            <li>Relatórios básicos</li>
-            <li>Até 2.000 mensagens/mês</li>
-          </ul>
-          <p class="plan-card__support">Suporte prioritário + onboarding assistido</p>
-          <a href="#" class="btn btn-primary" data-open-modal data-track="plan_clinic">Começar agora</a>
-        </div>
-
-        <!-- Pro -->
-        <div class="plan-card" data-animate>
           <h3 class="plan-card__name">Pro</h3>
-          <p class="plan-card__audience">Multiunidade / Governança</p>
+          <p class="plan-card__audience">Para alto volume de mensagens</p>
           <div class="plan-card__price">
-            <span class="plan-card__currency">R$</span>
-            <span class="plan-card__amount">997</span>
-            <span class="plan-card__period">/mês</span>
+            <span class="plan-card__price-label">a partir de</span>
           </div>
           <ul class="plan-card__features">
-            <li>Tudo do Clinic</li>
-            <li>Múltiplos canais</li>
-            <li>SLA por categoria</li>
-            <li>Auditoria e exportação</li>
-            <li>Integrações avançadas</li>
-            <li>Dashboards completos</li>
-            <li>Mensagens ilimitadas</li>
+            <li>Tudo do Básico</li>
+            <li>Tarefas e lembretes avançados</li>
+            <li>Tags/triagem</li>
+            <li>Integração WhatsApp/API (quando disponível)</li>
+            <li>Suporte prioritário</li>
           </ul>
-          <p class="plan-card__support">CS dedicado + onboarding premium</p>
-          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_pro">Falar com consultor</a>
+          <a href="#lead-form" class="btn btn-primary" data-track="plan_pro">Começar</a>
+        </div>
+
+        <!-- Clínica -->
+        <div class="plan-card" data-animate>
+          <h3 class="plan-card__name">Clínica</h3>
+          <p class="plan-card__audience">Para equipe e escala</p>
+          <div class="plan-card__price">
+            <span class="plan-card__price-label">a partir de</span>
+          </div>
+          <ul class="plan-card__features">
+            <li>Tudo do Pro</li>
+            <li>Múltiplos usuários e permissões</li>
+            <li>SLA/horários por equipe</li>
+            <li>Relatórios e produtividade</li>
+            <li>Onboarding e suporte dedicado</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_clinica">Falar com vendas</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ════════════ ONBOARDING — WhatsApp Setup ════════════ -->
-  <section class="section onboarding" id="onboarding">
-    <div class="container">
-      <span class="badge badge--gold" data-animate>Configuração simples</span>
-      <h2 class="section-title" style="margin-top: var(--space-lg);">Como você quer conectar seu WhatsApp?</h2>
-      <p class="section-subtitle">Escolha a opção que faz mais sentido para a sua rotina. Nos dois casos, a MAVI configura tudo para você.</p>
-
-      <div class="onboarding__grid">
-        <div class="onboarding__card" data-animate>
-          <div class="onboarding__icon" aria-hidden="true">&#128241;</div>
-          <h3>Usar meu número profissional</h3>
-          <p class="onboarding__desc">Já tem um número dedicado ao consultório? Migre para a API do WhatsApp Business e mantenha o contato que seus pacientes já conhecem.</p>
-          <ul class="onboarding__benefits">
-            <li>Pacientes continuam no mesmo número</li>
-            <li>Sem precisar avisar ninguém</li>
-            <li>Migração assistida pela equipe MAVI</li>
-          </ul>
-          <div class="onboarding__note">Ideal se você já tem um segundo chip ou número só para o consultório.</div>
-        </div>
-
-        <div class="onboarding__divider" data-animate>
-          <span>ou</span>
-        </div>
-
-        <div class="onboarding__card" data-animate>
-          <div class="onboarding__icon" aria-hidden="true">&#9889;</div>
-          <h3>Receber um número MAVI</h3>
-          <p class="onboarding__desc">Nós fornecemos um eSIM/chip pré-pago já configurado. Você recebe tudo pronto — é só começar a atender.</p>
-          <ul class="onboarding__benefits">
-            <li>Zero configuração do seu lado</li>
-            <li>Número profissional exclusivo</li>
-            <li>Se sair, leva a titularidade do número</li>
-          </ul>
-          <div class="onboarding__note">Ideal se você ainda mistura WhatsApp pessoal e profissional.</div>
-        </div>
-      </div>
-
-      <p class="onboarding__footer" data-animate>Não sabe qual escolher? Sem problema — no onboarding, ajudamos você a decidir.</p>
     </div>
   </section>
 
@@ -386,75 +415,150 @@
       <div class="faq__list" role="list">
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            A MAVI substitui meu WhatsApp?
+            O MAVI substitui o WhatsApp?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>Não. A MAVI não substitui o WhatsApp — ela organiza o fluxo que vem dele. Você continua usando o WhatsApp normalmente; a MAVI transforma mensagens em tarefas, filas e registros para que nada se perca e seu horário seja respeitado.</p>
+            <p>Não. O MAVI não substitui o WhatsApp — ele organiza, cria um canal profissional e integra com seu fluxo. Você continua atendendo pelo WhatsApp; o MAVI transforma mensagens em tarefas, filas e registros para que nada se perca.</p>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            Como fica a privacidade e a LGPD?
+            Precisa de WhatsApp Business API?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>A MAVI trata dados de comunicação (não dados clínicos do paciente). Seguimos boas práticas de segurança e privacidade, com criptografia e controle de acesso. Dados sensíveis de saúde não são armazenados no sistema.</p>
+            <p>Não necessariamente. O MAVI pode funcionar com o WhatsApp Business API quando disponível, mas também opera com canais dedicados e fluxos alternativos. No onboarding, ajudamos a encontrar a melhor configuração para você.</p>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            Funciona com minha equipe (secretária, enfermagem)?
+            Funciona para consultório particular e convênios?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>Sim! A partir do plano Clinic, você pode adicionar membros da equipe com permissões específicas. Cada pessoa vê apenas o que precisa, e as tarefas são atribuídas com clareza — sem confusão sobre "quem está cuidando do quê".</p>
+            <p>Sim. O MAVI organiza o fluxo de comunicação independentemente do modelo de atendimento. Funciona tanto para consultórios particulares quanto para quem atende por convênio ou opera em clínicas com múltiplos profissionais.</p>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            E se chegar uma urgência?
+            Como fica a privacidade/LGPD?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>Urgências são priorizadas automaticamente pela triagem da MAVI e sobem no topo da fila. Você pode configurar alertas específicos para palavras-chave ou tipos de demanda, garantindo resposta rápida quando realmente importa.</p>
+            <p>O MAVI trata dados de comunicação (não dados clínicos do paciente). Seguimos boas práticas de segurança e privacidade, com criptografia e controle de acesso. A plataforma é projetada para estar em conformidade com a LGPD.</p>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            Preciso de um número novo para usar a MAVI?
+            Posso limitar horários?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>Não necessariamente. Você pode migrar um número profissional que já usa (seus pacientes continuam no mesmo contato) ou receber um número novo MAVI já configurado. Nos dois casos, cuidamos de toda a configuração para você.</p>
+            <p>Sim. Você define janelas de atendimento e o MAVI gerencia expectativas fora desses horários. Mensagens recebidas fora do expediente entram na fila organizada para o próximo dia, e o paciente recebe confirmação de recebimento com prazo.</p>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__question" aria-expanded="false">
-            Quanto tempo leva para implantar?
+            Dá para anexar e organizar exames?
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
           <div class="faq__answer" role="region">
-            <p>A configuração inicial é simples e rápida. No plano Starter, o onboarding é self-serve e você pode começar no mesmo dia. Nos planos Clinic e Pro, oferecemos onboarding assistido para garantir que tudo esteja ajustado à sua rotina.</p>
+            <p>Sim. Laudos, PDFs e imagens ficam organizados por paciente dentro do MAVI. Nada se perde no meio de conversas — tudo fica acessível e rastreável.</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            Tem período gratuito?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__answer" role="region">
+            <p>Sim. Participantes do Programa Médico Fundador têm acesso gratuito durante a fase beta, com condições especiais de preço ao migrar para a versão completa.</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            Quando lança?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__answer" role="region">
+            <p>Estamos em fase de desenvolvimento e onboarding de Founders. Entre na lista de espera para ser avisado assim que o acesso antecipado estiver disponível. Founders têm prioridade.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════ CTA FINAL ════════════ -->
-  <section class="section cta-final">
+  <!-- ════════════ LEAD CAPTURE (inline) ════════════ -->
+  <section class="section lead-section" id="lead-form">
     <div class="container">
-      <h2 class="section-title">Recupere seus horários.<br>Sem perder seus pacientes.</h2>
-      <p class="section-subtitle">Agende uma demonstração e veja como a MAVI pode transformar o atendimento do seu consultório.</p>
-      <div class="cta-final__actions">
-        <a href="#" class="btn btn-white btn-lg" data-open-modal data-track="cta_final_primary">Eu quero organização</a>
-        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20MAVI" class="btn btn-secondary btn-lg" style="border-color: rgba(255,255,255,.3); color: var(--mavi-white);" target="_blank" rel="noopener" data-track="cta_final_whatsapp">Falar no WhatsApp</a>
+      <h2 class="section-title">Entre na lista de espera</h2>
+      <p class="section-subtitle">Deixe seu contato e seja um dos primeiros a usar o MAVI.</p>
+
+      <div class="lead-form">
+        <form id="inlineLeadForm" novalidate>
+          <div class="form-group">
+            <label for="inlineName">Nome *</label>
+            <input type="text" id="inlineName" name="name" required placeholder="Seu nome completo" autocomplete="name">
+            <span class="error-msg">Por favor, informe seu nome.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="inlineEmail">E-mail *</label>
+            <input type="email" id="inlineEmail" name="email" required placeholder="seu@email.com" autocomplete="email">
+            <span class="error-msg">Por favor, informe um e-mail válido.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="inlinePhone">WhatsApp (opcional)</label>
+            <input type="tel" id="inlinePhone" name="phone" placeholder="(11) 99999-9999" autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="inlineSpecialty">Especialidade (opcional)</label>
+            <select id="inlineSpecialty" name="specialty">
+              <option value="" selected>Selecione...</option>
+              <option value="clinica-geral">Clínica Geral</option>
+              <option value="pediatria">Pediatria</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="ortopedia">Ortopedia</option>
+              <option value="ginecologia">Ginecologia</option>
+              <option value="psiquiatria">Psiquiatria</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="inlineFounder" name="founder" value="yes">
+            <label for="inlineFounder">Quero participar como Founder</label>
+          </div>
+
+          <!-- Hidden UTM fields -->
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_content" value="">
+          <input type="hidden" name="utm_term" value="">
+          <input type="hidden" name="page_variant" value="">
+
+          <button type="submit" class="btn btn-primary btn-lg form__submit" data-track="form_submit">Entrar na lista de espera</button>
+        </form>
+
+        <div class="form__success" id="inlineFormSuccess">
+          <div class="form__success__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Recebemos seu contato!</h3>
+          <p>Entraremos em contato em breve. Fique de olho no seu e-mail.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -465,71 +569,94 @@
       <div class="footer__inner">
         <div>
           <div class="footer__logo">MA<span>VI</span></div>
-          <p class="footer__lore">"mavi" em turco significa azul — serenidade e tranquilidade.</p>
+          <p class="footer__tagline">Meu Assistente Virtual</p>
         </div>
         <div class="footer__links">
-          <a href="#funcionalidades">Funcionalidades</a>
-          <a href="#planos">Planos</a>
+          <a href="#" aria-label="Termos de uso (em breve)">Termos</a>
+          <a href="#" aria-label="Política de privacidade (em breve)">Privacidade</a>
           <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer__contact">
+          Contato: hello@mavimedi.com.br
         </div>
       </div>
       <div class="footer__bottom">
         <p>&copy; 2026 MAVI. Todos os direitos reservados.</p>
+        <p class="footer__disclaimer">MAVI não oferece orientação médica. É uma ferramenta de organização e comunicação.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ════════════ MODAL — Lead Form ════════════ -->
+  <!-- ════════════ MODAL — Lead Form (for CTA buttons) ════════════ -->
   <div class="modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="modal__header">
-        <h2 class="modal__title" id="modalTitle">Quero organizar meu consultório</h2>
+        <h2 class="modal__title" id="modalTitle">Entre na lista de espera</h2>
         <button class="modal__close" data-close-modal aria-label="Fechar">&times;</button>
       </div>
 
-      <form id="leadForm" novalidate>
+      <form id="modalLeadForm" novalidate>
         <div class="form-group">
-          <label for="leadName">Nome *</label>
-          <input type="text" id="leadName" name="name" required placeholder="Seu nome completo" autocomplete="name">
+          <label for="modalName">Nome *</label>
+          <input type="text" id="modalName" name="name" required placeholder="Seu nome completo" autocomplete="name">
           <span class="error-msg">Por favor, informe seu nome.</span>
         </div>
 
         <div class="form-group">
-          <label for="leadEmail">Email *</label>
-          <input type="email" id="leadEmail" name="email" required placeholder="seu@email.com" autocomplete="email">
-          <span class="error-msg">Por favor, informe um email válido.</span>
+          <label for="modalEmail">E-mail *</label>
+          <input type="email" id="modalEmail" name="email" required placeholder="seu@email.com" autocomplete="email">
+          <span class="error-msg">Por favor, informe um e-mail válido.</span>
         </div>
 
         <div class="form-group">
-          <label for="leadPhone">WhatsApp *</label>
-          <input type="tel" id="leadPhone" name="phone" required placeholder="(11) 99999-9999" autocomplete="tel">
-          <span class="error-msg">Por favor, informe um número válido.</span>
+          <label for="modalPhone">WhatsApp (opcional)</label>
+          <input type="tel" id="modalPhone" name="phone" placeholder="(11) 99999-9999" autocomplete="tel">
         </div>
 
         <div class="form-group">
-          <label for="leadProfile">Perfil *</label>
-          <select id="leadProfile" name="profile" required>
-            <option value="" disabled selected>Selecione...</option>
-            <option value="solo">Médico solo</option>
-            <option value="clinica">Clínica com equipe</option>
+          <label for="modalSpecialty">Especialidade (opcional)</label>
+          <select id="modalSpecialty" name="specialty">
+            <option value="" selected>Selecione...</option>
+            <option value="clinica-geral">Clínica Geral</option>
+            <option value="pediatria">Pediatria</option>
+            <option value="dermatologia">Dermatologia</option>
+            <option value="cardiologia">Cardiologia</option>
+            <option value="ortopedia">Ortopedia</option>
+            <option value="ginecologia">Ginecologia</option>
+            <option value="psiquiatria">Psiquiatria</option>
+            <option value="outro">Outro</option>
           </select>
-          <span class="error-msg">Por favor, selecione seu perfil.</span>
         </div>
 
-        <div class="form-group">
-          <label for="leadMessage">Mensagem (opcional)</label>
-          <textarea id="leadMessage" name="message" placeholder="Conte um pouco sobre sua rotina de atendimento..." rows="3"></textarea>
+        <div class="form-group form-group--checkbox">
+          <input type="checkbox" id="modalFounder" name="founder" value="yes">
+          <label for="modalFounder">Quero participar como Founder</label>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-lg form__submit" data-track="form_submit">Quero começar</button>
+        <!-- Hidden UTM fields -->
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="page_variant" value="">
+
+        <button type="submit" class="btn btn-primary btn-lg form__submit" data-track="modal_form_submit">Entrar na lista de espera</button>
       </form>
 
-      <div class="form__success">
-        <div class="form__success__icon" aria-hidden="true">&#10003;</div>
+      <div class="form__success" id="modalFormSuccess">
+        <div class="form__success__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <h3>Recebemos seu contato!</h3>
-        <p>Nossa equipe entrará em contato em breve para agendar sua demonstração.</p>
+        <p>Entraremos em contato em breve. Fique de olho no seu e-mail.</p>
       </div>
     </div>
+  </div>
+
+  <!-- ════════════ STICKY MOBILE CTA ════════════ -->
+  <div class="sticky-cta" aria-hidden="true">
+    <a href="#lead-form" class="btn btn-primary" data-track="sticky_cta">Entrar na lista</a>
   </div>
 
   <!-- Scripts -->

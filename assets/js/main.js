@@ -1,6 +1,7 @@
 /* ======================================================
    MAVI — Landing Page Scripts
-   Menu mobile, smooth scroll, FAQ, form, lead submission
+   Variant switching, menu, smooth scroll, FAQ, forms,
+   UTM capture, localStorage fallback, dataLayer, sticky CTA
    ====================================================== */
 
 (function () {
@@ -8,25 +9,63 @@
 
   // ── Config ──────────────────────────────────────────
   // Set your webhook URL here (Make / Zapier / n8n / Google Sheets).
-  // Leave empty to use WhatsApp / mailto fallback.
-  const LEAD_ENDPOINT = '';
+  // Leave empty to use localStorage fallback.
+  var LEAD_ENDPOINT = '';
 
-  // WhatsApp fallback (Brazilian format)
-  const WA_NUMBER = '5511999999999';
-  const WA_MESSAGE_TEMPLATE = (data) =>
-    `Olá! Sou ${data.name} (${data.profile}). Email: ${data.email}. WhatsApp: ${data.phone}. ${data.message ? 'Mensagem: ' + data.message : ''}`;
+  // ── dataLayer init ────────────────────────────────
+  window.dataLayer = window.dataLayer || [];
 
-  // Mailto fallback
-  const MAILTO_ADDRESS = 'contato@mavi.com.br';
+  // ── URL params ────────────────────────────────────
+  var params = new URLSearchParams(window.location.search);
+  var pageVariant = params.get('v') || 'a';
+
+  // ── Variant switching ─────────────────────────────
+  var variantElements = document.querySelectorAll('[data-variant]');
+  variantElements.forEach(function (el) {
+    if (el.dataset.variant === pageVariant) {
+      el.removeAttribute('hidden');
+    } else {
+      el.setAttribute('hidden', '');
+    }
+  });
+
+  // ── UTM capture ───────────────────────────────────
+  var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  var utmValues = {};
+
+  utmKeys.forEach(function (key) {
+    var val = params.get(key);
+    if (val) utmValues[key] = val;
+  });
+
+  // Populate all hidden UTM fields across all forms
+  function populateUTMFields() {
+    utmKeys.forEach(function (key) {
+      var val = utmValues[key] || '';
+      document.querySelectorAll('input[name="' + key + '"]').forEach(function (input) {
+        input.value = val;
+      });
+    });
+    // Set page variant in hidden fields
+    document.querySelectorAll('input[name="page_variant"]').forEach(function (input) {
+      input.value = pageVariant;
+    });
+  }
+
+  populateUTMFields();
 
   // ── DOM references ──────────────────────────────────
-  const navbar = document.querySelector('.navbar');
-  const navToggle = document.querySelector('.navbar__toggle');
-  const navLinks = document.querySelector('.navbar__links');
-  const modalOverlay = document.getElementById('leadModal');
-  const leadForm = document.getElementById('leadForm');
-  const formSuccess = document.querySelector('.form__success');
-  const faqItems = document.querySelectorAll('.faq__item');
+  var navbar = document.querySelector('.navbar');
+  var navToggle = document.querySelector('.navbar__toggle');
+  var navLinks = document.querySelector('.navbar__links');
+  var modalOverlay = document.getElementById('leadModal');
+  var inlineForm = document.getElementById('inlineLeadForm');
+  var modalForm = document.getElementById('modalLeadForm');
+  var inlineSuccess = document.getElementById('inlineFormSuccess');
+  var modalSuccess = document.getElementById('modalFormSuccess');
+  var faqItems = document.querySelectorAll('.faq__item');
+  var stickyCta = document.querySelector('.sticky-cta');
+  var heroSection = document.getElementById('hero');
 
   // ── Navbar scroll effect ────────────────────────────
   function handleScroll() {
@@ -45,7 +84,7 @@
     navToggle.addEventListener('click', function () {
       navToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', String(!expanded));
     });
 
@@ -102,10 +141,17 @@
   });
 
   // ── Modal ───────────────────────────────────────────
-  function openModal() {
+  function openModal(opts) {
     if (!modalOverlay) return;
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Pre-check founder checkbox if triggered from founders CTA
+    if (opts && opts.founder) {
+      var founderCb = document.getElementById('modalFounder');
+      if (founderCb) founderCb.checked = true;
+    }
+
     // Focus first input
     var firstInput = modalOverlay.querySelector('input, select, textarea');
     if (firstInput) setTimeout(function () { firstInput.focus(); }, 200);
@@ -115,14 +161,15 @@
     if (!modalOverlay) return;
     modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
-    resetForm();
+    resetForm(modalForm, modalSuccess);
   }
 
   // Open modal on CTA clicks
   document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      openModal();
+      var isFounder = this.hasAttribute('data-founder');
+      openModal({ founder: isFounder });
     });
   });
 
@@ -143,7 +190,7 @@
     if (e.key === 'Escape') closeModal();
   });
 
-  // ── Form validation & submission ────────────────────
+  // ── Form validation ─────────────────────────────────
   function validateField(input) {
     var group = input.closest('.form-group');
     if (!group) return true;
@@ -174,27 +221,30 @@
     return isValid;
   }
 
-  function resetForm() {
-    if (!leadForm) return;
-    leadForm.reset();
-    leadForm.querySelectorAll('.form-group').forEach(function (g) {
+  function resetForm(form, successEl) {
+    if (!form) return;
+    form.reset();
+    form.querySelectorAll('.form-group').forEach(function (g) {
       g.classList.remove('has-error');
     });
-    leadForm.style.display = '';
-    if (formSuccess) formSuccess.classList.remove('active');
+    form.style.display = '';
+    if (successEl) successEl.classList.remove('active');
+    // Re-populate UTM fields after reset
+    populateUTMFields();
   }
 
-  // Real-time validation
-  if (leadForm) {
-    leadForm.querySelectorAll('input, select').forEach(function (input) {
+  // Real-time validation on blur for both forms
+  [inlineForm, modalForm].forEach(function (form) {
+    if (!form) return;
+    form.querySelectorAll('input[required], select[required]').forEach(function (input) {
       input.addEventListener('blur', function () { validateField(this); });
     });
-  }
+  });
 
-  // Phone mask (Brazilian format)
-  var phoneInput = document.getElementById('leadPhone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
+  // ── Phone mask (Brazilian format) ───────────────────
+  function applyPhoneMask(input) {
+    if (!input) return;
+    input.addEventListener('input', function () {
       var val = this.value.replace(/\D/g, '');
       if (val.length > 11) val = val.slice(0, 11);
       if (val.length > 6) {
@@ -207,12 +257,33 @@
     });
   }
 
-  // Submit
-  if (leadForm) {
-    leadForm.addEventListener('submit', function (e) {
+  applyPhoneMask(document.getElementById('inlinePhone'));
+  applyPhoneMask(document.getElementById('modalPhone'));
+
+  // ── Form submission ─────────────────────────────────
+  function collectFormData(form) {
+    return {
+      name: form.querySelector('[name="name"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      phone: (form.querySelector('[name="phone"]').value || '').trim(),
+      specialty: form.querySelector('[name="specialty"]').value || '',
+      founder: form.querySelector('[name="founder"]').checked,
+      utm_source: form.querySelector('[name="utm_source"]').value,
+      utm_medium: form.querySelector('[name="utm_medium"]').value,
+      utm_campaign: form.querySelector('[name="utm_campaign"]').value,
+      utm_content: form.querySelector('[name="utm_content"]').value,
+      utm_term: form.querySelector('[name="utm_term"]').value,
+      page_variant: form.querySelector('[name="page_variant"]').value,
+      source: window.location.href,
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  function handleFormSubmit(form, successEl) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var inputs = leadForm.querySelectorAll('input[required], select[required]');
+      var inputs = form.querySelectorAll('input[required], select[required]');
       var allValid = true;
 
       inputs.forEach(function (input) {
@@ -221,26 +292,30 @@
 
       if (!allValid) return;
 
-      var formData = {
-        name: document.getElementById('leadName').value.trim(),
-        email: document.getElementById('leadEmail').value.trim(),
-        phone: document.getElementById('leadPhone').value.trim(),
-        profile: document.getElementById('leadProfile').value,
-        message: document.getElementById('leadMessage').value.trim(),
-        source: window.location.pathname,
-        timestamp: new Date().toISOString()
-      };
+      var formData = collectFormData(form);
 
       if (LEAD_ENDPOINT) {
-        submitToWebhook(formData);
+        submitToWebhook(formData, form, successEl);
       } else {
-        submitFallback(formData);
+        saveToLocalStorage(formData);
+        showSuccess(form, successEl);
       }
+
+      // dataLayer push
+      window.dataLayer.push({
+        event: 'mavi_lead_captured',
+        lead_specialty: formData.specialty,
+        lead_founder: formData.founder,
+        page_variant: formData.page_variant,
+        utm_source: formData.utm_source,
+        utm_medium: formData.utm_medium,
+        utm_campaign: formData.utm_campaign
+      });
     });
   }
 
-  function submitToWebhook(data) {
-    var submitBtn = leadForm.querySelector('.form__submit');
+  function submitToWebhook(data, form, successEl) {
+    var submitBtn = form.querySelector('.form__submit');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
@@ -253,32 +328,68 @@
     })
       .then(function (response) {
         if (!response.ok) throw new Error('Erro no envio');
-        showSuccess();
+        showSuccess(form, successEl);
       })
       .catch(function () {
-        // Fallback on error
-        submitFallback(data);
+        // Fallback to localStorage on error
+        saveToLocalStorage(data);
+        showSuccess(form, successEl);
       })
       .finally(function () {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Agendar demo';
+          submitBtn.textContent = 'Entrar na lista de espera';
         }
       });
   }
 
-  function submitFallback(data) {
-    var waText = encodeURIComponent(WA_MESSAGE_TEMPLATE(data));
-    var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + waText;
-    window.open(waUrl, '_blank', 'noopener');
-    showSuccess();
+  function saveToLocalStorage(data) {
+    try {
+      var leads = JSON.parse(localStorage.getItem('mavi_leads') || '[]');
+      leads.push(data);
+      localStorage.setItem('mavi_leads', JSON.stringify(leads));
+    } catch (e) {
+      // localStorage unavailable — silent fail
+    }
   }
 
-  function showSuccess() {
-    if (!leadForm || !formSuccess) return;
-    leadForm.style.display = 'none';
-    formSuccess.classList.add('active');
+  function showSuccess(form, successEl) {
+    if (!form || !successEl) return;
+    form.style.display = 'none';
+    successEl.classList.add('active');
   }
+
+  // Attach submit handlers
+  if (inlineForm) handleFormSubmit(inlineForm, inlineSuccess);
+  if (modalForm) handleFormSubmit(modalForm, modalSuccess);
+
+  // ── Founder CTA → scroll to form with checkbox pre-checked ──
+  document.querySelectorAll('[data-founder]').forEach(function (btn) {
+    // For non-modal founder CTAs (anchor links)
+    if (!btn.hasAttribute('data-open-modal')) {
+      btn.addEventListener('click', function () {
+        var founderCb = document.getElementById('inlineFounder');
+        if (founderCb) founderCb.checked = true;
+      });
+    }
+  });
+
+  // ── Sticky mobile CTA ──────────────────────────────
+  function handleStickyCta() {
+    if (!stickyCta || !heroSection) return;
+
+    var heroBottom = heroSection.getBoundingClientRect().bottom;
+    var footerTop = document.querySelector('.footer');
+    var isFooterVisible = footerTop && footerTop.getBoundingClientRect().top < window.innerHeight;
+
+    if (heroBottom < 0 && !isFooterVisible) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleStickyCta, { passive: true });
 
   // ── Scroll animations (Intersection Observer) ──────
   var animatedElements = document.querySelectorAll('[data-animate]');
@@ -309,12 +420,15 @@
   style.textContent = '.animated { opacity: 1 !important; transform: translateY(0) !important; }';
   document.head.appendChild(style);
 
-  // ── Analytics-ready data attributes ─────────────────
+  // ── Analytics — dataLayer push on CTA clicks ──────
   document.querySelectorAll('[data-track]').forEach(function (el) {
     el.addEventListener('click', function () {
-      var event = this.getAttribute('data-track');
-      // Ready for GA4/Pixel integration
-      // Example: gtag('event', event, { ... });
+      var eventName = this.getAttribute('data-track');
+      window.dataLayer.push({
+        event: 'mavi_cta_click',
+        cta_name: eventName,
+        page_variant: pageVariant
+      });
     });
   });
 
