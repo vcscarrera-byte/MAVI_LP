@@ -58,6 +58,7 @@
         <a href="#como-funciona">Como funciona</a>
         <a href="#funcionalidades">Funcionalidades</a>
         <a href="#planos">Planos</a>
+        <a href="#onboarding">Onboarding</a>
         <a href="#faq">FAQ</a>
         <div class="navbar__cta">
           <a href="#" class="btn btn-primary" data-open-modal data-track="nav_cta">Agendar demo</a>
@@ -263,16 +264,21 @@
         <div class="plan-card" data-animate>
           <h3 class="plan-card__name">Starter</h3>
           <p class="plan-card__audience">Para médicos solo</p>
-          <p class="plan-card__price">Em breve</p>
+          <div class="plan-card__price">
+            <span class="plan-card__currency">R$</span>
+            <span class="plan-card__amount">197</span>
+            <span class="plan-card__period">/mês</span>
+          </div>
           <ul class="plan-card__features">
             <li>Inbox + regras de horário</li>
             <li>Etiquetas e prioridade</li>
             <li>Templates de resposta</li>
             <li>Lembretes básicos</li>
             <li>1 canal (WhatsApp)</li>
+            <li>Até 500 mensagens/mês</li>
           </ul>
           <p class="plan-card__support">Suporte em horário comercial + onboarding self-serve</p>
-          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_starter">Agendar demo</a>
+          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_starter">Começar agora</a>
         </div>
 
         <!-- Clinic (featured) -->
@@ -280,24 +286,33 @@
           <div class="plan-card__badge"><span class="badge">Mais popular</span></div>
           <h3 class="plan-card__name">Clinic</h3>
           <p class="plan-card__audience">Para clínicas com equipe</p>
-          <p class="plan-card__price">Em breve</p>
+          <div class="plan-card__price">
+            <span class="plan-card__currency">R$</span>
+            <span class="plan-card__amount">497</span>
+            <span class="plan-card__period">/mês</span>
+          </div>
           <ul class="plan-card__features">
             <li>Tudo do Starter</li>
             <li>Multiusuários e permissões</li>
             <li>Atribuição de tarefas</li>
-            <li>Triagem avançada</li>
+            <li>Triagem avançada com IA</li>
             <li>Histórico completo</li>
             <li>Relatórios básicos</li>
+            <li>Até 2.000 mensagens/mês</li>
           </ul>
           <p class="plan-card__support">Suporte prioritário + onboarding assistido</p>
-          <a href="#" class="btn btn-primary" data-open-modal data-track="plan_clinic">Agendar demo</a>
+          <a href="#" class="btn btn-primary" data-open-modal data-track="plan_clinic">Começar agora</a>
         </div>
 
         <!-- Pro -->
         <div class="plan-card" data-animate>
           <h3 class="plan-card__name">Pro</h3>
           <p class="plan-card__audience">Multiunidade / Governança</p>
-          <p class="plan-card__price">Em breve</p>
+          <div class="plan-card__price">
+            <span class="plan-card__currency">R$</span>
+            <span class="plan-card__amount">997</span>
+            <span class="plan-card__period">/mês</span>
+          </div>
           <ul class="plan-card__features">
             <li>Tudo do Clinic</li>
             <li>Múltiplos canais</li>
@@ -305,11 +320,53 @@
             <li>Auditoria e exportação</li>
             <li>Integrações avançadas</li>
             <li>Dashboards completos</li>
+            <li>Mensagens ilimitadas</li>
           </ul>
           <p class="plan-card__support">CS dedicado + onboarding premium</p>
-          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_pro">Agendar demo</a>
+          <a href="#" class="btn btn-secondary" data-open-modal data-track="plan_pro">Falar com consultor</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ════════════ ONBOARDING — WhatsApp Setup ════════════ -->
+  <section class="section onboarding" id="onboarding">
+    <div class="container">
+      <span class="badge badge--gold" data-animate>Configuração simples</span>
+      <h2 class="section-title" style="margin-top: var(--space-lg);">Como você quer conectar seu WhatsApp?</h2>
+      <p class="section-subtitle">Escolha a opção que faz mais sentido para a sua rotina. Nos dois casos, a MAVI configura tudo para você.</p>
+
+      <div class="onboarding__grid">
+        <div class="onboarding__card" data-animate>
+          <div class="onboarding__icon" aria-hidden="true">&#128241;</div>
+          <h3>Usar meu número profissional</h3>
+          <p class="onboarding__desc">Já tem um número dedicado ao consultório? Migre para a API do WhatsApp Business e mantenha o contato que seus pacientes já conhecem.</p>
+          <ul class="onboarding__benefits">
+            <li>Pacientes continuam no mesmo número</li>
+            <li>Sem precisar avisar ninguém</li>
+            <li>Migração assistida pela equipe MAVI</li>
+          </ul>
+          <div class="onboarding__note">Ideal se você já tem um segundo chip ou número só para o consultório.</div>
+        </div>
+
+        <div class="onboarding__divider" data-animate>
+          <span>ou</span>
+        </div>
+
+        <div class="onboarding__card" data-animate>
+          <div class="onboarding__icon" aria-hidden="true">&#9889;</div>
+          <h3>Receber um número MAVI</h3>
+          <p class="onboarding__desc">Nós fornecemos um eSIM/chip pré-pago já configurado. Você recebe tudo pronto — é só começar a atender.</p>
+          <ul class="onboarding__benefits">
+            <li>Zero configuração do seu lado</li>
+            <li>Número profissional exclusivo</li>
+            <li>Se sair, leva a titularidade do número</li>
+          </ul>
+          <div class="onboarding__note">Ideal se você ainda mistura WhatsApp pessoal e profissional.</div>
+        </div>
+      </div>
+
+      <p class="onboarding__footer" data-animate>Não sabe qual escolher? Sem problema — no onboarding, ajudamos você a decidir.</p>
     </div>
   </section>
 
@@ -357,6 +414,16 @@
           </button>
           <div class="faq__answer" role="region">
             <p>Não. A MAVI responde imediatamente com acolhimento e prazo claro. O paciente sabe que foi ouvido e quando terá retorno — sem silêncio, sem frustração.</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            Preciso de um número novo para usar a MAVI?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__answer" role="region">
+            <p>Não necessariamente. Você pode migrar um número profissional que já usa (seus pacientes continuam no mesmo contato) ou receber um número novo MAVI já configurado. Nos dois casos, cuidamos de toda a configuração para você.</p>
           </div>
         </div>
 
